@@ -10,7 +10,9 @@ const pool = new Pool({
   host: "localhost",
   database: "twitter",
   password: "password",
-  port: process.env.PORT || 5433,
+  port: process.env.PORT || 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.IS_LOCAL ? undefined : { rejectUnauthorized: false },
 });
 
 const getAllTweets = (request, response) => {
