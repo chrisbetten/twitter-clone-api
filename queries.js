@@ -1,16 +1,15 @@
 const res = require("express/lib/response");
 const { database } = require("pg/lib/defaults");
-// const { secret } = require('./config.js');
 const secret = process.env.SECRET;
 const jwt = require('jsonwebtoken');
 
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "me",
-  host: "localhost",
-  database: "twitter",
-  password: "password",
-  port: process.env.PORT || 5432,
+  // user: "me",
+  // host: "localhost",
+  // database: "twitter",
+  // password: "password",
+  // port: process.env.PORT || 5433,
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.IS_LOCAL ? undefined : { rejectUnauthorized: false },
 });
