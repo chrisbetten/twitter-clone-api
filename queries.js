@@ -1,6 +1,7 @@
 const res = require("express/lib/response");
 const { database } = require("pg/lib/defaults");
-const { secret } = require('./config.js');
+// const { secret } = require('./config.js');
+const secret = process.env.SECRET;
 const jwt = require('jsonwebtoken');
 
 const Pool = require("pg").Pool;
@@ -9,7 +10,7 @@ const pool = new Pool({
   host: "localhost",
   database: "twitter",
   password: "password",
-  port: 5433,
+  port: process.env.PORT || 5433,
 });
 
 const getAllTweets = (request, response) => {
